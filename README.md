@@ -1,21 +1,17 @@
 # TronTrade SDK
 
-## Getting Started
+this client is still in alpha state and not yet available on npm
+
+## Install package
 
 ```bash
-yarn install
+npm install @trontrade/client
 ```
 
-### Build
+or
 
 ```bash
-yarn build
-```
-
-### Generate documentation
-
-```bash
-yarn docs
+yarn add @trontrade/client
 ```
 
 The documentation will be available in the folder `/docs`
@@ -57,4 +53,17 @@ console.log(`Current ANTE Price: ${ticker.price}`);
 symbolApi.ticker().watch().subscribe(ticker => {
   console.log(`Current ANTE Price: ${ticker.price}`);
 });
+```
+
+### Build
+
+```bash
+yarn install
+yarn build
+```
+
+### Generate documentation
+
+```bash
+yarn docs
 ```
