@@ -1,3 +1,6 @@
+/**
+ * @module api
+ */
 import {Observable} from "rxjs";
 import {Order} from "../models/order";
 

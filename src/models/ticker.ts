@@ -1,4 +1,10 @@
+/**
+ * @module models
+ */
 
+/**
+ * Price Ticker
+ */
 export interface Ticker {
   high: number;
   low: number;

@@ -1,5 +1,13 @@
+/**
+ * # Account API
+ *
+ * @module api.account
+ */
 import AccountOrdersApi from "./accountOrdersApi";
 
+/**
+ * Account API
+ */
 export default class AccountApi {
 
   private walletAddress: string;
@@ -15,9 +23,4 @@ export default class AccountApi {
   trades() {
 
   }
-
-  // balance(symbol: string): Promise<number>;
-  // balanceTRC20(contractAddress: string): Promise<number>;
-  // balanceTRC10(contractAddress: string): Promise<number>;
-
 }

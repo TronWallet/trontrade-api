@@ -1,5 +1,11 @@
+/**
+ * @module models
+ */
 import {OrderSide} from "./order";
 
+/**
+ * Trade
+ */
 export default interface Trade {
   tx: string;
   symbolId: number;

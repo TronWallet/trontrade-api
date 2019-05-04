@@ -1,3 +1,6 @@
+/**
+ * @module client.trading
+ */
 import BigNumber from "bignumber.js";
 
 interface Options {

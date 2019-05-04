@@ -1,3 +1,6 @@
+/**
+ * @module api
+ */
 import {Observable} from "rxjs";
 import Trade from "../models/trade";
 

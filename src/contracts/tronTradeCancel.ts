@@ -1,4 +1,15 @@
+/**
+ * @module contracts
+ */
+
+/**
+ * Cancel Smart Contract Address
+ */
 export const address = process.env.TRONTRADECANCEL_CONTRACT || 'CANCEL_ADDRESS';
+
+/**
+ * Cancel Smart Contract ABI
+ */
 export const abi =  [
   {
     outputs: [

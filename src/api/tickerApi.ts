@@ -1,3 +1,6 @@
+/**
+ * @module api
+ */
 import {Ticker} from "../models/ticker";
 import {Observable} from "rxjs";
 

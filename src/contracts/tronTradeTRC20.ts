@@ -1,7 +1,14 @@
+/**
+ * @module contracts
+ */
+
+/**
+ * TRC20 Smart Contract Address
+ */
 export const address = process.env.TRONTRADE_TRC20_CONTRACT || 'TRC20_ADDRESS';
 
 /**
- * @ignore
+ * TRC20 Smart Contract ABI
  */
 export const abi = [
   {

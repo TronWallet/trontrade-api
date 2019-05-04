@@ -1,3 +1,6 @@
+/**
+ * @module client.trading
+ */
 import BigNumber from "bignumber.js";
 import OrderPriceCalculator from "./orderPriceCalculator";
 import {OrderSide} from "../../models/order";

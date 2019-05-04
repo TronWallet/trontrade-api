@@ -1,5 +1,11 @@
+/**
+ * @module models
+ */
 import Asset from "./asset";
 
+/**
+ * Symbol
+ */
 export default class Symbol {
   name: string;
   id: number;

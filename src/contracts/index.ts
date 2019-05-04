@@ -1,3 +1,8 @@
+/**
+ * # Smart Contract ABI and Addresses
+ *
+ * @module contracts
+ */
 import * as TronTradeTRC10Abi from "./tronTradeTRC10";
 import * as TronTradeTRC20Abi from "./tronTradeTRC20";
 import * as TronTradeCancelAbi from "./tronTradeCancel";

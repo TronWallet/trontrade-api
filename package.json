@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "docs": "rm -rf ./docs && typedoc --excludeExternals --externalPattern '**/node_modules/**' --ignoreCompilerErrors --mode file --out ./docs ./src"
+    "docs": "rm -rf ./docs && typedoc --excludeExternals --externalPattern '**/node_modules/**' --ignoreCompilerErrors --mode modules --out ./docs ./src"
   },
   "author": "TronTrade",
   "license": "ISC",

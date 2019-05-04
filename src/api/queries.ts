@@ -1,3 +1,6 @@
+/**
+ * @module api.queries
+ */
 import gql from "graphql-tag";
 import {OrderStatus} from "../models/order";
 

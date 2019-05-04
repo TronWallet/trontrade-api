@@ -1,4 +1,10 @@
+/**
+ * @module models
+ */
 
+/**
+ * Order
+ */
 export interface Order {
   transaction: string;
   orderId: number;
@@ -12,6 +18,9 @@ export interface Order {
   filled: number;
 }
 
+/**
+ * Order Status
+ */
 export enum OrderStatus {
   Failed = 0,
   Pending = 1,
@@ -19,7 +28,9 @@ export enum OrderStatus {
   Cancelled = 3,
 }
 
-
+/**
+ * Order Side
+ */
 export enum OrderSide {
   Sell = 0,
   Buy = 1,

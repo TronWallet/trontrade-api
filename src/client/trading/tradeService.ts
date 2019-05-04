@@ -1,3 +1,6 @@
+/**
+ * @module client.trading
+ */
 import xhr from "axios";
 import {
   TronTradeCancelContract,
@@ -5,16 +8,21 @@ import {
   TronTradeTRC20Address,
   TronTradeTRC20Contract
 } from "../../contracts";
-import AddOrderRequest from "./addOrderRequest";
 import {API_URL} from "../../config";
 import {OrderSide} from "../../models/order";
 import {Market} from "../../models/market";
+import {AddOrderRequest} from "./addOrderRequest";
 
 const TYPE_LIMIT = 1;
 const TYPE_MARKET = 2;
 
 const FEE_LIMIT = 10000000;
 
+/**
+ * Trading Service
+ *
+ * Should not be used directly. Used [[TradingClient]] instead
+ */
 export default class TradeService {
 
   private tronWeb: any;

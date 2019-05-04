@@ -1,3 +1,6 @@
+/**
+ * @module api.account
+ */
 import OrdersApi from "../ordersApi";
 import {Order} from "../../models/order";
 import {Observable} from "rxjs";

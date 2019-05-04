@@ -1,3 +1,6 @@
+/**
+ * @module api.symbol
+ */
 import {Observable} from "rxjs";
 import {filter} from "rxjs/internal/operators/filter";
 import Symbol from "../../models/symbol";

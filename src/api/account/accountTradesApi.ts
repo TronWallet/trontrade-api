@@ -1,9 +1,12 @@
+/**
+ * @module api.account
+ */
 import {EMPTY, Observable} from "rxjs";
 import TradesApi from "../tradesApi";
 import Trade from "../../models/trade";
 import {tronTradeApiClient} from "../apollo";
-import {queryLatestTrades, queryWalletOrders} from "../queries";
-import {OrderStatus} from "../../orders/status";
+import {queryWalletOrders} from "../queries";
+import {OrderStatus} from "../../models/order";
 
 export default class AccountTradesApi implements TradesApi {
 

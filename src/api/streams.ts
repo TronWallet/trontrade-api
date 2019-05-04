@@ -1,3 +1,6 @@
+/**
+ * @module api.streams
+ */
 import {Observable} from "rxjs";
 import {Order} from "../models/order";
 import {createSocket} from "../services/sockets";

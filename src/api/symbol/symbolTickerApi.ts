@@ -1,3 +1,6 @@
+/**
+ * @module api.symbol
+ */
 import Symbol from "../../models/symbol";
 import {TickerApi} from "../tickerApi";
 import {Ticker} from "../../models/ticker";
