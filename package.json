@@ -1,0 +1,41 @@
+{
+  "name": "@trontrade/sdk",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "docs": "rm -rf ./docs && typedoc --excludeExternals --externalPattern '**/node_modules/**' --ignoreCompilerErrors --mode file --out ./docs ./src"
+  },
+  "author": "TronTrade",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/parser": "^7.3.4",
+    "@babel/types": "^7.3.4",
+    "@types/jest": "^24.0.11",
+    "@types/socket.io-client": "^1.4.32",
+    "apollo-cache-inmemory": "^1.4.2",
+    "apollo-client": "^2.4.12",
+    "apollo-link-batch-http": "^1.2.6",
+    "apollo-link-http": "^1.5.9",
+    "bignumber.js": "^8.1.1",
+    "graphql": "^14.1.1",
+    "graphql-tag": "^2.10.1",
+    "jest": "^24.5.0",
+    "lodash": "^4.17.11",
+    "node-fetch": "^2.3.0",
+    "rxjs": "^6.4.0",
+    "socket.io-client": "^2.2.0",
+    "tronweb": "^2.4.3",
+    "ts-jest": "^24.0.0",
+    "ts-node": "^8.0.3",
+    "typedoc": "^0.14.2",
+    "typedoc-plugin-external-module-name": "^2.0.0",
+    "typescript": "^3.3.4000"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.2"
+  }
+}
