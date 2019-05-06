@@ -78,6 +78,7 @@ export default class TradingClient {
     });
 
     this.symbols = exchanges.map(exchange => new Symbol(
+      exchange.id,
       `${exchange.sellAssetName}${exchange.buyAssetName}`,
       new Asset({
         name: exchange.sellAssetName,
