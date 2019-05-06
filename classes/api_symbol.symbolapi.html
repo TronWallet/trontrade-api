@@ -67,6 +67,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<h1 id="symbol-api">Symbol API</h1>
+					</div>
+					<p>Provides ticker, orders and orderbook information</p>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -114,7 +122,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/symbol/symbolApi.ts#L10">api/symbol/symbolApi.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/symbol/symbolApi.ts#L16">api/symbol/symbolApi.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -136,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">symbol<span class="tsd-signature-symbol">:</span> <a href="models.symbol.html" class="tsd-signature-type">Symbol</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/symbol/symbolApi.ts#L10">api/symbol/symbolApi.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/symbol/symbolApi.ts#L16">api/symbol/symbolApi.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -147,16 +155,21 @@
 					<a name="orderbook" class="tsd-anchor"></a>
 					<h3>orderbook</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">orderbook<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">orderbook<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="api_symbol.symbolorderbookapi.html" class="tsd-signature-type">SymbolOrderBookApi</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/symbol/symbolApi.ts#L20">api/symbol/symbolApi.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/symbol/symbolApi.ts#L39">api/symbol/symbolApi.ts:39</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Orderbook API</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="api_symbol.symbolorderbookapi.html" class="tsd-signature-type">SymbolOrderBookApi</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -170,9 +183,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/symbol/symbolApi.ts#L24">api/symbol/symbolApi.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/symbol/symbolApi.ts#L32">api/symbol/symbolApi.ts:32</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Orders API</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="api_symbol.symbolordersapi.html" class="tsd-signature-type">SymbolOrdersApi</a></h4>
 						</li>
 					</ul>
@@ -187,9 +205,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/symbol/symbolApi.ts#L16">api/symbol/symbolApi.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/symbol/symbolApi.ts#L25">api/symbol/symbolApi.ts:25</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Ticker API</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <a href="api_symbol.symboltickerapi.html" class="tsd-signature-type">SymbolTickerApi</a></h4>
 						</li>
 					</ul>
@@ -239,6 +262,9 @@
 						<a href="../modules/sockets.html">sockets</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/tests.html">tests</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/utils.html">utils</a>
 					</li>
 				</ul>
@@ -269,6 +295,9 @@
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="api_symbol.symbolorderbookapi.html" class="tsd-kind-icon">Symbol<wbr>Order<wbr>Book<wbr>Api</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="api_symbol.symbolordersapi.html" class="tsd-kind-icon">Symbol<wbr>Orders<wbr>Api</a>
 					</li>

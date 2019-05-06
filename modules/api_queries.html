@@ -74,10 +74,12 @@
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#queryalllatesttransactions" class="tsd-kind-icon">query<wbr>All<wbr>Latest<wbr>Transactions</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#querylatesttrades" class="tsd-kind-icon">query<wbr>Latest<wbr>Trades</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#querymarketcap" class="tsd-kind-icon">query<wbr>Market<wbr>Cap</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#queryorderbook" class="tsd-kind-icon">query<wbr>Order<wbr>Book</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#querystats" class="tsd-kind-icon">query<wbr>Stats</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#querysymbol" class="tsd-kind-icon">query<wbr>Symbol</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#querysymbolticker" class="tsd-kind-icon">query<wbr>Symbol<wbr>Ticker</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#querysymbols" class="tsd-kind-icon">query<wbr>Symbols</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#querywallethistoryorders" class="tsd-kind-icon">query<wbr>Wallet<wbr>History<wbr>Orders</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#querywalletorders" class="tsd-kind-icon">query<wbr>Wallet<wbr>Orders</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#readtrc10balance" class="tsd-kind-icon">readTRC10<wbr>Balance</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-external-module"><a href="api_queries.html#readtrc20balance" class="tsd-kind-icon">readTRC20<wbr>Balance</a></li>
@@ -88,8 +90,6 @@
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="api_queries.html#querymarketstats" class="tsd-kind-icon">query<wbr>Market<wbr>Stats</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="api_queries.html#queryorderbook" class="tsd-kind-icon">query<wbr>Order<wbr>Book</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="api_queries.html#querywallethistoryorders" class="tsd-kind-icon">query<wbr>Wallet<wbr>History<wbr>Orders</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-external-module"><a href="api_queries.html#querywallettotalvolume" class="tsd-kind-icon">query<wbr>Wallet<wbr>Total<wbr>Volume</a></li>
 							</ul>
 						</section>
@@ -104,7 +104,7 @@
 					<div class="tsd-signature tsd-kind-icon">query<wbr>All<wbr>Latest<wbr>Transactions<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query {exchanges{history(limit: 1){idmarketIdpricetxId}}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L183">api/queries.ts:183</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L187">api/queries.ts:187</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -114,7 +114,7 @@
 					<div class="tsd-signature tsd-kind-icon">query<wbr>Latest<wbr>Trades<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query latestTransactions($exchangeId: ID!) {exchange(id: $exchangeId) {history(limit: 50) {idsidepricefilledcreatedAtmarketIdtxId}}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L50">api/queries.ts:50</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L50">api/queries.ts:50</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -124,7 +124,17 @@
 					<div class="tsd-signature tsd-kind-icon">query<wbr>Market<wbr>Cap<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query {marketCap {markets {nameabbreviationicontypepricevolumemarketcaph24ChangedecimalscirculatingSupplytotalSupplypriceTrendLine(interval: &quot;4h&quot;)}}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L252">api/queries.ts:252</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L256">api/queries.ts:256</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="queryorderbook" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> query<wbr>Order<wbr>Book</h3>
+					<div class="tsd-signature tsd-kind-icon">query<wbr>Order<wbr>Book<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query orderBook($exchangeId: ID!){exchange(id: $exchangeId) {tokenIdAtokenIdBtokenDecimalsAtokenDecimalsBorderBook(limit: 100) {totalBuytotalSellbuy {pricetotalAmount}sell {pricetotalAmount}}}}&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L164">api/queries.ts:164</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -134,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">query<wbr>Stats<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query {stats {traders24hActivevolume24hTrx}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L243">api/queries.ts:243</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L247">api/queries.ts:247</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -144,7 +154,7 @@
 					<div class="tsd-signature tsd-kind-icon">query<wbr>Symbol<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query querySymbol($exchangeId: ID!) {exchange(id: $exchangeId) {idstats {h24_pricehighlowvolumevolumeTrxh24_changelastPrice}iconbuyAssetNamesellAssetNametokenTypeAtokenIdAtokenTypeBtokenIdBtokenDecimalsAtokenDecimalsBsitelisted}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L119">api/queries.ts:119</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L119">api/queries.ts:119</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -154,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">query<wbr>Symbol<wbr>Ticker<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query querySymbol($exchangeId: ID!) {exchange(id: $exchangeId) {idstats {h24_pricehighlowvolumevolumeTrxh24_changelastPrice}}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L146">api/queries.ts:146</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L146">api/queries.ts:146</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -164,17 +174,27 @@
 					<div class="tsd-signature tsd-kind-icon">query<wbr>Symbols<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query {exchanges {idstats {h24_pricehighlowvolumevolumeTrxh24_changelastPrice}iconbuyAssetNamesellAssetNametokenTypeAtokenIdAtokenTypeBtokenIdBtokenDecimalsAtokenDecimalsBsitelisted}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L91">api/queries.ts:91</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L91">api/queries.ts:91</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
+					<a name="querywallethistoryorders" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> query<wbr>Wallet<wbr>History<wbr>Orders</h3>
+					<div class="tsd-signature tsd-kind-icon">query<wbr>Wallet<wbr>History<wbr>Orders<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query walletOrder($address: String!, $start: Int!, $limit: Int!, $status: String, $exchangeId: Int!, $sortType: String!, $orderBy: String!){wallet(address: address) {orders(limit: $limit, start: $start, status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {totalCount,rows {idmarketPriceamountfilledstatustxStatuscreatedAttxOrdermarketIdcontractIdsidecompletedAt}}}}&#x60;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L215">api/queries.ts:215</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 					<a name="querywalletorders" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagConst">Const</span> query<wbr>Wallet<wbr>Orders</h3>
-					<div class="tsd-signature tsd-kind-icon">query<wbr>Wallet<wbr>Orders<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query queryWalletOrders($address: String!, $status: String!, $exchangeId: Int!, $sortType: String, $orderBy: String) {wallet(address: $address) {orders(status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {totalCount,rows {idmarketPriceamountfilledstatustxStatuscreatedAttxOrdermarketIdcontractIdsidecompletedAt}}}}&#x60;</span></div>
+					<div class="tsd-signature tsd-kind-icon">query<wbr>Wallet<wbr>Orders<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query queryWalletOrders($address: String!, $status: String!, $exchangeId: Int!, $sortType: String, $orderBy: String, $start: Int!, $limit: Int!) {wallet(address: $address) {orders(start: $start, limit: $limit, status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {totalCount,rows {idmarketPriceamountfilledstatustxStatuscreatedAttxOrdermarketIdcontractIdsidecompletedAt}}}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L67">api/queries.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L67">api/queries.ts:67</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">readTRC10<wbr>Balance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query trc10Balance($address: String!, $id: String!) {account(address: $address) {balance {token: trc10(id: $id) {balancedecimals}}}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L26">api/queries.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L26">api/queries.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -199,7 +219,7 @@
 					<div class="tsd-signature tsd-kind-icon">readTRC20<wbr>Balance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query trc20Balance($address: String!, $contract: String!) {account(address: $address) {balance {token: trc20(address: $contract) {balancebalanceSundecimals}}}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L10">api/queries.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L10">api/queries.ts:10</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -214,7 +234,7 @@
 					<div class="tsd-signature tsd-kind-icon">read<wbr>Trx<wbr>Balance<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;gql&#x60;query trxBalance($address: String!) {account(address: $address) {balance {trx}}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L41">api/queries.ts:41</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L41">api/queries.ts:41</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -236,77 +256,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L196">api/queries.ts:196</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L200">api/queries.ts:200</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>marketId: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="queryorderbook" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> query<wbr>Order<wbr>Book</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">query<wbr>Order<wbr>Book<span class="tsd-signature-symbol">(</span>marketId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L164">api/queries.ts:164</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>marketId: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-external-module">
-					<a name="querywallethistoryorders" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> query<wbr>Wallet<wbr>History<wbr>Orders</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-external-module">
-						<li class="tsd-signature tsd-kind-icon">query<wbr>Wallet<wbr>History<wbr>Orders<span class="tsd-signature-symbol">(</span>address<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, limit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, status<span class="tsd-signature-symbol">: </span><a href="../enums/models.orderstatus.html" class="tsd-signature-type">OrderStatus</a><span class="tsd-signature-symbol">[]</span>, exchangeId<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, sortType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, orderBy<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L211">api/queries.ts:211</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>address: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> limit: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;100</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> start: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></h5>
-								</li>
-								<li>
-									<h5>status: <a href="../enums/models.orderstatus.html" class="tsd-signature-type">OrderStatus</a><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> exchangeId: <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
-								</li>
-								<li>
-									<h5>sortType: <span class="tsd-signature-type">any</span></h5>
-								</li>
-								<li>
-									<h5>orderBy: <span class="tsd-signature-type">any</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -323,7 +279,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/queries.ts#L235">api/queries.ts:235</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/queries.ts#L239">api/queries.ts:239</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -387,6 +343,9 @@
 						<a href="sockets.html">sockets</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="tests.html">tests</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="utils.html">utils</a>
 					</li>
 				</ul>
@@ -403,6 +362,9 @@
 						<a href="api_queries.html#querymarketcap" class="tsd-kind-icon">query<wbr>Market<wbr>Cap</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="api_queries.html#queryorderbook" class="tsd-kind-icon">query<wbr>Order<wbr>Book</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
 						<a href="api_queries.html#querystats" class="tsd-kind-icon">query<wbr>Stats</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
@@ -413,6 +375,9 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
 						<a href="api_queries.html#querysymbols" class="tsd-kind-icon">query<wbr>Symbols</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
+						<a href="api_queries.html#querywallethistoryorders" class="tsd-kind-icon">query<wbr>Wallet<wbr>History<wbr>Orders</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module">
 						<a href="api_queries.html#querywalletorders" class="tsd-kind-icon">query<wbr>Wallet<wbr>Orders</a>
@@ -428,12 +393,6 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="api_queries.html#querymarketstats" class="tsd-kind-icon">query<wbr>Market<wbr>Stats</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="api_queries.html#queryorderbook" class="tsd-kind-icon">query<wbr>Order<wbr>Book</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-external-module">
-						<a href="api_queries.html#querywallethistoryorders" class="tsd-kind-icon">query<wbr>Wallet<wbr>History<wbr>Orders</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-external-module">
 						<a href="api_queries.html#querywallettotalvolume" class="tsd-kind-icon">query<wbr>Wallet<wbr>Total<wbr>Volume</a>

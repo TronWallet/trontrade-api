@@ -67,6 +67,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<h1 id="price-ticker-api">Price Ticker API</h1>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -119,7 +126,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/symbol/symbolTickerApi.ts#L14">api/symbol/symbolTickerApi.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/symbol/symbolTickerApi.ts#L17">api/symbol/symbolTickerApi.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -141,7 +148,7 @@
 					<div class="tsd-signature tsd-kind-icon">symbol<span class="tsd-signature-symbol">:</span> <a href="models.symbol.html" class="tsd-signature-type">Symbol</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/symbol/symbolTickerApi.ts#L14">api/symbol/symbolTickerApi.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/symbol/symbolTickerApi.ts#L17">api/symbol/symbolTickerApi.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -159,9 +166,21 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/api.tickerapi.html">TickerApi</a>.<a href="../interfaces/api.tickerapi.html#current">current</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/symbol/symbolTickerApi.ts#L20">api/symbol/symbolTickerApi.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/symbol/symbolTickerApi.ts#L37">api/symbol/symbolTickerApi.ts:37</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Receive the current price of the symbol</p>
+								</div>
+								<p><strong>Get price for symbol</strong></p>
+								<pre><code class="language-javascript"><span class="hljs-keyword">const</span> anteSymbolId = <span class="hljs-number">1</span>;
+<span class="hljs-keyword">const</span> symbolApi = <span class="hljs-keyword">await</span> client.symbol(anteSymbolId);
+
+<span class="hljs-keyword">const</span> ticker = <span class="hljs-keyword">await</span> symbolApi.ticker().current();
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Current ANTE Price: <span class="hljs-subst">${ticker.price}</span>`</span>);</code></pre>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/models.ticker.html" class="tsd-signature-type">Ticker</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -177,9 +196,17 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/api.tickerapi.html">TickerApi</a>.<a href="../interfaces/api.tickerapi.html#watch">watch</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/symbol/symbolTickerApi.ts#L36">api/symbol/symbolTickerApi.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/api/symbol/symbolTickerApi.ts#L63">api/symbol/symbolTickerApi.ts:63</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p><strong>Get price for symbol periodically</strong></p>
+								</div>
+								<pre><code class="language-javascript">symbolApi.ticker().watch().subscribe(<span class="hljs-function"><span class="hljs-params">ticker</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">`Current ANTE Price: <span class="hljs-subst">${ticker.price}</span>`</span>);
+});</code></pre>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/models.ticker.html" class="tsd-signature-type">Ticker</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -229,6 +256,9 @@
 						<a href="../modules/sockets.html">sockets</a>
 					</li>
 					<li class=" tsd-kind-external-module">
+						<a href="../modules/tests.html">tests</a>
+					</li>
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/utils.html">utils</a>
 					</li>
 				</ul>
@@ -237,6 +267,9 @@
 				<ul class="before-current">
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="api_symbol.symbolapi.html" class="tsd-kind-icon">Symbol<wbr>Api</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="api_symbol.symbolorderbookapi.html" class="tsd-kind-icon">Symbol<wbr>Order<wbr>Book<wbr>Api</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
 						<a href="api_symbol.symbolordersapi.html" class="tsd-kind-icon">Symbol<wbr>Orders<wbr>Api</a>

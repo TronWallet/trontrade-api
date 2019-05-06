@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AccountTradesApi | @trontrade/sdk</title>
+	<title>OrderBook | @trontrade/sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/api_account.html">api.account</a>
+					<a href="../modules/models.html">models</a>
 				</li>
 				<li>
-					<a href="api_account.accounttradesapi.html">AccountTradesApi</a>
+					<a href="models.orderbook.html">OrderBook</a>
 				</li>
 			</ul>
-			<h1>Class AccountTradesApi</h1>
+			<h1>Class OrderBook</h1>
 		</div>
 	</div>
 </header>
@@ -71,14 +71,8 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AccountTradesApi</span>
+						<span class="target">OrderBook</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/api.tradesapi.html" class="tsd-signature-type">TradesApi</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -88,20 +82,24 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="api_account.accounttradesapi.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="models.orderbook.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="api_account.accounttradesapi.html#walletaddress" class="tsd-kind-icon">wallet<wbr>Address</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="models.orderbook.html#_buy" class="tsd-kind-icon">_buy</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="models.orderbook.html#_sell" class="tsd-kind-icon">_sell</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="models.orderbook.html#symbol" class="tsd-kind-icon">symbol</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="api_account.accounttradesapi.html#recent" class="tsd-kind-icon">recent</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="api_account.accounttradesapi.html#watch" class="tsd-kind-icon">watch</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models.orderbook.html#buy" class="tsd-kind-icon">buy</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models.orderbook.html#buyprice" class="tsd-kind-icon">buy<wbr>Price</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models.orderbook.html#sell" class="tsd-kind-icon">sell</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="models.orderbook.html#sellprice" class="tsd-kind-icon">sell<wbr>Price</a></li>
 							</ul>
 						</section>
 					</div>
@@ -113,22 +111,33 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Account<wbr>Trades<wbr>Api<span class="tsd-signature-symbol">(</span>symbol<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="api_account.accounttradesapi.html" class="tsd-signature-type">AccountTradesApi</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Order<wbr>Book<span class="tsd-signature-symbol">(</span>symbol<span class="tsd-signature-symbol">: </span><a href="models.symbol.html" class="tsd-signature-type">Symbol</a>, orderBook<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="models.orderbook.html" class="tsd-signature-type">OrderBook</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/account/accountTradesApi.ts#L13">api/account/accountTradesApi.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/models/orderBook.ts#L16">models/orderBook.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>symbol: <span class="tsd-signature-type">string</span></h5>
+									<h5>symbol: <a href="models.symbol.html" class="tsd-signature-type">Symbol</a></h5>
+								</li>
+								<li>
+									<h5>orderBook: <span class="tsd-signature-type">object</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>buy<span class="tsd-signature-symbol">: </span><a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+										<li class="tsd-parameter">
+											<h5>sell<span class="tsd-signature-symbol">: </span><a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a><span class="tsd-signature-symbol">[]</span></h5>
+										</li>
+									</ul>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="api_account.accounttradesapi.html" class="tsd-signature-type">AccountTradesApi</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="models.orderbook.html" class="tsd-signature-type">OrderBook</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -136,12 +145,32 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
-					<a name="walletaddress" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> wallet<wbr>Address</h3>
-					<div class="tsd-signature tsd-kind-icon">wallet<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="_buy" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _buy</h3>
+					<div class="tsd-signature tsd-kind-icon">_buy<span class="tsd-signature-symbol">:</span> <a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/account/accountTradesApi.ts#L13">api/account/accountTradesApi.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/models/orderBook.ts#L15">models/orderBook.ts:15</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="_sell" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _sell</h3>
+					<div class="tsd-signature tsd-kind-icon">_sell<span class="tsd-signature-symbol">:</span> <a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/models/orderBook.ts#L16">models/orderBook.ts:16</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="symbol" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> symbol</h3>
+					<div class="tsd-signature tsd-kind-icon">symbol<span class="tsd-signature-symbol">:</span> <a href="models.symbol.html" class="tsd-signature-type">Symbol</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/models/orderBook.ts#L14">models/orderBook.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -149,44 +178,90 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="recent" class="tsd-anchor"></a>
-					<h3>recent</h3>
+					<a name="buy" class="tsd-anchor"></a>
+					<h3>buy</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">recent<span class="tsd-signature-symbol">(</span>limit<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/models.trade.html" class="tsd-signature-type">Trade</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">buy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/api.tradesapi.html">TradesApi</a>.<a href="../interfaces/api.tradesapi.html#recent">recent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/account/accountTradesApi.ts#L23">api/account/accountTradesApi.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/models/orderBook.ts#L30">models/orderBook.ts:30</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> limit: <span class="tsd-signature-type">number</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/models.trade.html" class="tsd-signature-type">Trade</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return prices on buy side</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="watch" class="tsd-anchor"></a>
-					<h3>watch</h3>
+					<a name="buyprice" class="tsd-anchor"></a>
+					<h3>buy<wbr>Price</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">watch<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/models.trade.html" class="tsd-signature-type">Trade</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">buy<wbr>Price<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/api.tradesapi.html">TradesApi</a>.<a href="../interfaces/api.tradesapi.html#watch">watch</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/24430f1/src/api/account/accountTradesApi.ts#L19">api/account/accountTradesApi.ts:19</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/models/orderBook.ts#L51">models/orderBook.ts:51</a></li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/models.trade.html" class="tsd-signature-type">Trade</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return highest buy price</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sell" class="tsd-anchor"></a>
+					<h3>sell</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">sell<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/models/orderBook.ts#L37">models/orderBook.ts:37</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return prices on sell side</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="sellprice" class="tsd-anchor"></a>
+					<h3>sell<wbr>Price</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">sell<wbr>Price<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/models/orderBook.ts#L44">models/orderBook.ts:44</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return lowest sell price</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/models.orderprice.html" class="tsd-signature-type">OrderPrice</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -201,7 +276,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/api.html">api</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/api_account.html">api.account</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -228,11 +303,14 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/contracts.html">contracts</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/models.html">models</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/sockets.html">sockets</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="../modules/tests.html">tests</a>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/utils.html">utils</a>
@@ -241,33 +319,66 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="api_account.accountapi.html" class="tsd-kind-icon">Account<wbr>Api</a>
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="../enums/models.orderside.html" class="tsd-kind-icon">Order<wbr>Side</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="../enums/models.orderstatus.html" class="tsd-kind-icon">Order<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="api_account.accountordersapi.html" class="tsd-kind-icon">Account<wbr>Orders<wbr>Api</a>
+						<a href="models.asset.html" class="tsd-kind-icon">Asset</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-external-module">
-						<a href="api_account.accounttradesapi.html" class="tsd-kind-icon">Account<wbr>Trades<wbr>Api</a>
+						<a href="models.orderbook.html" class="tsd-kind-icon">Order<wbr>Book</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="api_account.accounttradesapi.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="models.orderbook.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
-								<a href="api_account.accounttradesapi.html#walletaddress" class="tsd-kind-icon">wallet<wbr>Address</a>
+								<a href="models.orderbook.html#_buy" class="tsd-kind-icon">_buy</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="models.orderbook.html#_sell" class="tsd-kind-icon">_sell</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="models.orderbook.html#symbol" class="tsd-kind-icon">symbol</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="api_account.accounttradesapi.html#recent" class="tsd-kind-icon">recent</a>
+								<a href="models.orderbook.html#buy" class="tsd-kind-icon">buy</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="api_account.accounttradesapi.html#watch" class="tsd-kind-icon">watch</a>
+								<a href="models.orderbook.html#buyprice" class="tsd-kind-icon">buy<wbr>Price</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="models.orderbook.html#sell" class="tsd-kind-icon">sell</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="models.orderbook.html#sellprice" class="tsd-kind-icon">sell<wbr>Price</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="models.symbol.html" class="tsd-kind-icon">Symbol</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/models.market.html" class="tsd-kind-icon">Market</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/models.order.html" class="tsd-kind-icon">Order</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../interfaces/models.orderprice.html" class="tsd-kind-icon">Order<wbr>Price</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/models.ticker.html" class="tsd-kind-icon">Ticker</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="../interfaces/models.trade.html" class="tsd-kind-icon">Trade</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

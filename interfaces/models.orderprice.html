@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Options | @trontrade/sdk</title>
+	<title>OrderPrice | @trontrade/sdk</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,13 +54,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/client_trading.html">client.trading</a>
+					<a href="../modules/models.html">models</a>
 				</li>
 				<li>
-					<a href="client_trading.options.html">Options</a>
+					<a href="models.orderprice.html">OrderPrice</a>
 				</li>
 			</ul>
-			<h1>Interface Options</h1>
+			<h1>Interface OrderPrice</h1>
 		</div>
 	</div>
 </header>
@@ -71,7 +71,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Options</span>
+						<span class="target">OrderPrice</span>
 					</li>
 				</ul>
 			</section>
@@ -82,8 +82,8 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="client_trading.options.html#decimals" class="tsd-kind-icon">decimals</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="client_trading.options.html#feerate" class="tsd-kind-icon">fee<wbr>Rate</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="models.orderprice.html#price" class="tsd-kind-icon">price</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported"><a href="models.orderprice.html#totalamount" class="tsd-kind-icon">total<wbr>Amount</a></li>
 							</ul>
 						</section>
 					</div>
@@ -92,22 +92,22 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="decimals" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> decimals</h3>
-					<div class="tsd-signature tsd-kind-icon">decimals<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="price" class="tsd-anchor"></a>
+					<h3>price</h3>
+					<div class="tsd-signature tsd-kind-icon">price<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/client/trading/orderPriceCalculator.ts#L8">client/trading/orderPriceCalculator.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/models/orderBook.ts#L8">models/orderBook.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-					<a name="feerate" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> fee<wbr>Rate</h3>
-					<div class="tsd-signature tsd-kind-icon">fee<wbr>Rate<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<a name="totalamount" class="tsd-anchor"></a>
+					<h3>total<wbr>Amount</h3>
+					<div class="tsd-signature tsd-kind-icon">total<wbr>Amount<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/client/trading/orderPriceCalculator.ts#L7">client/trading/orderPriceCalculator.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/4f40153/src/models/orderBook.ts#L9">models/orderBook.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -140,7 +140,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/client.html">client</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/client_trading.html">client.trading</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -149,7 +149,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/contracts.html">contracts</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/models.html">models</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -165,53 +165,47 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/client_trading.addorderrequest.html" class="tsd-kind-icon">Add<wbr>Order<wbr>Request</a>
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="../enums/models.orderside.html" class="tsd-kind-icon">Order<wbr>Side</a>
+					</li>
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module">
+						<a href="../enums/models.orderstatus.html" class="tsd-kind-icon">Order<wbr>Status</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/client_trading.orderpricecalculator.html" class="tsd-kind-icon">Order<wbr>Price<wbr>Calculator</a>
+						<a href="../classes/models.asset.html" class="tsd-kind-icon">Asset</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/client_trading.tradeservice.html" class="tsd-kind-icon">Trade<wbr>Service</a>
+						<a href="../classes/models.orderbook.html" class="tsd-kind-icon">Order<wbr>Book</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module">
-						<a href="../classes/client_trading.tradingclient.html" class="tsd-kind-icon">Trading<wbr>Client</a>
+						<a href="../classes/models.symbol.html" class="tsd-kind-icon">Symbol</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="models.market.html" class="tsd-kind-icon">Market</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="models.order.html" class="tsd-kind-icon">Order</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="client_trading.options.html" class="tsd-kind-icon">Options</a>
+						<a href="models.orderprice.html" class="tsd-kind-icon">Order<wbr>Price</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="client_trading.options.html#decimals" class="tsd-kind-icon">decimals</a>
+								<a href="models.orderprice.html#price" class="tsd-kind-icon">price</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-not-exported">
-								<a href="client_trading.options.html#feerate" class="tsd-kind-icon">fee<wbr>Rate</a>
+								<a href="models.orderprice.html#totalamount" class="tsd-kind-icon">total<wbr>Amount</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="client_trading.options-1.html" class="tsd-kind-icon">Options</a>
+						<a href="models.ticker.html" class="tsd-kind-icon">Ticker</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="client_trading.ordercancelresult.html" class="tsd-kind-icon">Order<wbr>Cancel<wbr>Result</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="client_trading.orderresult.html" class="tsd-kind-icon">Order<wbr>Result</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="client_trading.walletoptions.html" class="tsd-kind-icon">Wallet<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../modules/client_trading.html#fee_limit" class="tsd-kind-icon">FEE_<wbr>LIMIT</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../modules/client_trading.html#type_limit" class="tsd-kind-icon">TYPE_<wbr>LIMIT</a>
-					</li>
-					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-not-exported">
-						<a href="../modules/client_trading.html#type_market" class="tsd-kind-icon">TYPE_<wbr>MARKET</a>
+						<a href="models.trade.html" class="tsd-kind-icon">Trade</a>
 					</li>
 				</ul>
 			</nav>
