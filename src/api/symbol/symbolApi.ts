@@ -4,7 +4,13 @@
 import Symbol from "../../models/symbol";
 import SymbolTickerApi from "./symbolTickerApi";
 import SymbolOrdersApi from "./symbolOrdersApi";
+import SymbolOrderBookApi from "./symbolOrderBookApi";
 
+/**
+ * # Symbol API
+ *
+ * Provides ticker, orders and orderbook information
+ */
 export default class SymbolApi {
 
   public symbol: Symbol;
@@ -13,15 +19,24 @@ export default class SymbolApi {
     this.symbol = symbol;
   }
 
+  /**
+   * Ticker API
+   */
   ticker(): SymbolTickerApi {
     return new SymbolTickerApi(this.symbol);
   }
 
-  async orderbook() {
-
-  }
-
+  /**
+   * Orders API
+   */
   orders() {
     return new SymbolOrdersApi(this.symbol);
+  }
+
+  /**
+   * Orderbook API
+   */
+  orderbook() {
+    return new SymbolOrderBookApi(this.symbol);
   }
 }

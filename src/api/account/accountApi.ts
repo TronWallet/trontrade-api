@@ -16,11 +16,11 @@ export default class AccountApi {
     this.walletAddress = walletAddress;
   }
 
+  /**
+   * Account Orders API
+   */
   orders() {
     return new AccountOrdersApi(this.walletAddress);
   }
 
-  trades() {
-
-  }
 }

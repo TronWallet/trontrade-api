@@ -54,21 +54,22 @@ import AccountApi from "../api/account/accountApi";
  */
 export default class ExchangeClient {
 
-  async symbols() {
+  async symbols(): Promise<Symbol[]> {
 
     const { data: { exchanges } } = await tronTradeApiClient.query({
       query: querySymbols
     });
 
     return exchanges.map(exchange => new Symbol(
+      exchange.id,
       `${exchange.sellAssetName}${exchange.buyAssetName}`,
       new Asset({
         name: exchange.sellAssetName,
-        precision: exchange.tokenDecimalsA,
+        precision: parseInt(exchange.tokenDecimalsA),
       }),
       new Asset({
         name: exchange.buyAssetName,
-        precision: exchange.tokenDecimalsB,
+        precision: parseInt(exchange.tokenDecimalsB),
       }),
     ));
   }
@@ -83,6 +84,7 @@ export default class ExchangeClient {
     });
 
     const s = new Symbol(
+      exchange.id,
       `${exchange.sellAssetName}${exchange.buyAssetName}`,
       new Asset({
         name: exchange.sellAssetName,

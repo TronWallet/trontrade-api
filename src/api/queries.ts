@@ -65,9 +65,9 @@ export const queryLatestTrades = gql`
 
 
 export const queryWalletOrders = gql`
-  query queryWalletOrders($address: String!, $status: String!, $exchangeId: Int!, $sortType: String, $orderBy: String) {
+  query queryWalletOrders($address: String!, $status: String!, $exchangeId: Int!, $sortType: String, $orderBy: String, $start: Int!, $limit: Int!) {
     wallet(address: $address) {
-      orders(status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
+      orders(start: $start, limit: $limit, status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
         totalCount,
         rows {
           id
@@ -161,9 +161,13 @@ export const querySymbolTicker = gql`
 `;
 
 
-export const queryOrderBook = (marketId) => gql`
-  query {
-    exchange(id: ${marketId}) {
+export const queryOrderBook = gql`
+  query orderBook($exchangeId: ID!){
+    exchange(id: $exchangeId) {
+      tokenIdA
+      tokenIdB
+      tokenDecimalsA
+      tokenDecimalsB
       orderBook(limit: 100) {
         totalBuy
         totalSell
@@ -208,10 +212,10 @@ export const queryMarketStats = (marketId) => gql`
 `;
 
 
-export const queryWalletHistoryOrders = (address, limit = 100, start = 0, status: OrderStatus[], exchangeId: null | number = null, sortType, orderBy) => gql`
-  query {
-  wallet(address: "${address}") {
-    orders(limit: ${limit}, start: ${start}, status: "${status.join(",")}", exchangeId: ${exchangeId}, sortType: "${sortType}", orderBy: "${orderBy}") {
+export const queryWalletHistoryOrders = gql`
+query walletOrder($address: String!, $start: Int!, $limit: Int!, $status: String, $exchangeId: Int!, $sortType: String!, $orderBy: String!){
+  wallet(address: address) {
+    orders(limit: $limit, start: $start, status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
       totalCount,
       rows {
         id
@@ -229,7 +233,7 @@ export const queryWalletHistoryOrders = (address, limit = 100, start = 0, status
       }
     }
   }
-  }
+}
 `;
 
 export const queryWalletTotalVolume = (address, exchangeId, days) => gql`

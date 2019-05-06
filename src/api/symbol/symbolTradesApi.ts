@@ -5,12 +5,11 @@ import {Observable} from "rxjs";
 import {filter} from "rxjs/internal/operators/filter";
 import Symbol from "../../models/symbol";
 import {newTradeStream} from "../streams";
-import TradesApi from "../tradesApi";
 import Trade from "../../models/trade";
 import {tronTradeApiClient} from "../apollo";
 import {queryLatestTrades, querySymbol} from "../queries";
 
-export default class SymbolTradesApi implements TradesApi {
+export default class SymbolTradesApi {
 
   private symbol: Symbol;
 

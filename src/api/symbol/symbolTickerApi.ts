@@ -9,6 +9,9 @@ import {tronTradeApiClient} from "../apollo";
 import {querySymbol} from "../queries";
 import {concatMap} from "rxjs/operators";
 
+/**
+ * # Price Ticker API
+ */
 export default class SymbolTickerApi implements TickerApi {
 
   public symbol: Symbol;
@@ -17,8 +20,23 @@ export default class SymbolTickerApi implements TickerApi {
     this.symbol = symbol;
   }
 
+  /**
+   * Receive the current price of the symbol
+   *
+   * **Get price for symbol**
+   *
+   * ```javascript
+   * const anteSymbolId = 1;
+   * const symbolApi = await client.symbol(anteSymbolId);
+   *
+   * const ticker = await symbolApi.ticker().current();
+   *
+   * console.log(`Current ANTE Price: ${ticker.price}`);
+   * ```
+   */
   async current(): Promise<Ticker> {
-    const { data: { exchange } } = await tronTradeApiClient.query({
+
+    const { data: { exchange: { stats } } } = await tronTradeApiClient.query({
       query: querySymbol,
       variables: {
         exchangeId: this.symbol.id,
@@ -26,13 +44,22 @@ export default class SymbolTickerApi implements TickerApi {
     });
 
     return {
-      high: exchange.stats.high,
-      low: exchange.stats.low,
-      volume: exchange.stats.volume,
-      price: exchange.stats.lastPrice,
+      high: stats.high,
+      low: stats.low,
+      volume: stats.volume,
+      price: stats.lastPrice,
     };
   }
 
+  /**
+   * **Get price for symbol periodically**
+   *
+   * ```javascript
+   * symbolApi.ticker().watch().subscribe(ticker => {
+   *   console.log(`Current ANTE Price: ${ticker.price}`);
+   * });
+   * ```
+   */
   watch(): Observable<Ticker> {
     return interval(10000)
       .pipe(concatMap(() => this.current()))
