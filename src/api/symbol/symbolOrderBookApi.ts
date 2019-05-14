@@ -5,7 +5,7 @@ import Symbol from "../../models/symbol";
 import {merge, Observable} from "rxjs";
 import {tronTradeApiClient} from "../apollo";
 import {queryOrderBook} from "../queries";
-import {concatMap, filter} from "rxjs/operators";
+import {concatMap, filter, throttleTime} from "rxjs/operators";
 import OrderBook from "../../models/orderBook";
 import {newOrderStream, newTradeStream} from "../streams";
 
@@ -56,6 +56,7 @@ export default class SymbolOrderBookApi {
     return merge(newOrderStream(), newTradeStream())
       .pipe(
         filter(x => x.symbolId === this.symbol.id),
+        throttleTime(3000),
         concatMap(() => this.current())
       );
   }
