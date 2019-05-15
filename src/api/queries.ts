@@ -236,6 +236,34 @@ query walletOrder($address: String!, $start: Int!, $limit: Int!, $status: String
 }
 `;
 
+
+export const queryWalletHistoryTrades = gql`
+query walletTrade($address: String!, $start: Int!, $limit: Int!, $exchangeId: Int!, $sortType: String!, $orderBy: String!){
+  wallet(address: address) {
+    trades(limit: $limit, start: $start, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
+      totalCount,
+      rows {
+        id
+        txId
+        quantity
+        price
+        filled
+        status
+        txStatus
+        createdAt
+        marketId
+        contractId
+        side
+        fromOrder
+        toOrder
+        fromOrderWallet
+        toOrderWallet
+      }
+    }
+  }
+}
+`;
+
 export const queryWalletTotalVolume = (address, exchangeId, days) => gql`
   query {
     wallet(address: "${address}") {

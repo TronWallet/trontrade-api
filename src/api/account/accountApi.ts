@@ -4,6 +4,7 @@
  * @module api.account
  */
 import AccountOrdersApi from "./accountOrdersApi";
+import AccountTradesApi from "./accountTradesApi";
 
 /**
  * Account API
@@ -23,4 +24,10 @@ export default class AccountApi {
     return new AccountOrdersApi(this.walletAddress);
   }
 
+  /**
+   * Account Orders API
+   */
+  trades() {
+    return new AccountTradesApi(this.walletAddress);
+  }
 }
