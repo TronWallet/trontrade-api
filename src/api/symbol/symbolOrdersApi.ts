@@ -13,7 +13,7 @@ interface QueryParameters {
   start?: number;
   limit?: number;
   status?: OrderStatus[];
-  sortBy: string;
+  sortBy?: string;
 }
 
 export default class SymbolOrdersApi {

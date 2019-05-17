@@ -11,7 +11,8 @@ import Trade from "../../models/trade";
 interface QueryParameters {
   start?: number;
   limit?: number;
-  sortBy: string;
+  sortBy?: string;
+  symbolId?: number;
 }
 
 /**
@@ -60,8 +61,8 @@ export default class AccountTradesApi {
    * * side
    * 
    * * marketPrice
-   * * amountQuantity
-   * * filledQuantity
+   * * amount/amountQuantity
+   * * filled/filledQuantity
    *
    * ## Example Usage
    *
@@ -80,9 +81,10 @@ export default class AccountTradesApi {
     start = 0,
     limit = 50,
     sortBy = 'createdAt:ASC',
+    symbolId = null,
   }: QueryParameters): Promise<Trade[]> {
-    // why sort by is required ?
-    const [sortType, orderBy] = sortBy.split(":");
+
+    const [sortType, orderBy = ''] = sortBy.split(":");
 
     const {
       data: {
@@ -100,6 +102,7 @@ export default class AccountTradesApi {
         limit,
         sortType,
         orderBy,
+        exchangeId: symbolId
       }
     });
 
@@ -110,8 +113,8 @@ export default class AccountTradesApi {
       price: trade.price,
       filled: trade.filled,
       time: trade.createdAt,
-      fromOrderWallet: trade.fromOrderWallet || '',
-      toOrderWallet: trade.toOrderWallet || '',
+      // fromOrderWallet: trade.fromOrderWallet || '',
+      // toOrderWallet: trade.toOrderWallet || '',
     }));
   }
 

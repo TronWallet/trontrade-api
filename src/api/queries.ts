@@ -214,7 +214,7 @@ export const queryMarketStats = (marketId) => gql`
 
 export const queryWalletHistoryOrders = gql`
 query walletOrder($address: String!, $start: Int!, $limit: Int!, $status: String, $exchangeId: Int!, $sortType: String!, $orderBy: String!){
-  wallet(address: address) {
+  wallet(address: $address) {
     orders(limit: $limit, start: $start, status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
       totalCount,
       rows {
@@ -238,8 +238,8 @@ query walletOrder($address: String!, $start: Int!, $limit: Int!, $status: String
 
 
 export const queryWalletHistoryTrades = gql`
-query walletTrade($address: String!, $start: Int!, $limit: Int!, $exchangeId: Int!, $sortType: String!, $orderBy: String!){
-  wallet(address: address) {
+query walletTrade($address: String!, $start: Int!, $limit: Int!, $exchangeId: Int, $sortType: String!, $orderBy: String!){
+  wallet(address: $address) {
     trades(limit: $limit, start: $start, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
       totalCount,
       rows {
@@ -256,8 +256,8 @@ query walletTrade($address: String!, $start: Int!, $limit: Int!, $exchangeId: In
         side
         fromOrder
         toOrder
-        fromOrderWallet
-        toOrderWallet
+        # fromOrderWallet
+        # toOrderWallet
       }
     }
   }

@@ -11,10 +11,10 @@ export default interface Trade {
   symbolId: number;
   price: number;
   filled: number;
-  time: number;
+  time?: number;
   side: OrderSide;
-  fromOrderWallet?: string;
-  toOrderWallet?: string;
+  // fromOrderWallet?: string;
+  // toOrderWallet?: string;
   // fromOrderExpand?: Order;
   // toOrderExpand?: Order;
 }
