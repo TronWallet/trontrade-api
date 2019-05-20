@@ -39,7 +39,7 @@ export interface OrderCancelResult {
  * ```javascript
  * const tradingClient = new TradingClient({
  *  privateKey: '....',
- *  fullNode: 'https://api.trongrid.io',
+ *  fullNodeUrl: 'https://api.trongrid.io',
  * });
  *
  * const anteSymbolId = 1;
@@ -77,6 +77,7 @@ export default class TradingClient {
       query: querySymbols
     });
 
+    // TODO: this won't work ...
     this.symbols = exchanges.map(exchange => new Symbol(
       exchange.id,
       `${exchange.sellAssetName}${exchange.buyAssetName}`,
@@ -112,6 +113,7 @@ export default class TradingClient {
    * ```
    */
   async submitOrder(order: AddOrderRequest): Promise<OrderResult> {
+    // name : submitOrderRequest ?
     if (!this.symbols) {
       await this.loadMarkets();
     }

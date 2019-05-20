@@ -69,7 +69,7 @@ export default class SymbolOrdersApi {
     limit = 50,
     status = [OrderStatus.Pending],
     sortBy = 'createdAt:ASC',
-  }: QueryParameters): Promise<Order[]> {
+  }: QueryParameters = {}): Promise<Order[]> {
 
     const [sortType, orderBy] = sortBy.split(":");
 

@@ -8,7 +8,7 @@ import {OrderStatus} from "../models/order";
  * Reads the TRC20 balance for a given address and contract
  */
 export const readTRC20Balance = gql`
-  query trc20Balance($address: String!, $contract: String!) {
+  query trc20Balance($address: ID!, $contract: String!) {
     account(address: $address) {
       balance {
         token: trc20(address: $contract) {
@@ -24,7 +24,7 @@ export const readTRC20Balance = gql`
  * Reads the TRC10 balance for a given address and contract
  */
 export const readTRC10Balance = gql`
-  query trc10Balance($address: String!, $id: String!) {
+  query trc10Balance($address: ID!, $id: String!) {
     account(address: $address) {
       balance {
         token: trc10(id: $id) {
@@ -39,7 +39,7 @@ export const readTRC10Balance = gql`
  * Reads the TRX balance
  */
 export const readTrxBalance = gql`
-  query trxBalance($address: String!) {
+  query trxBalance($address: ID!) {
     account(address: $address) {
       balance {
         trx
@@ -65,7 +65,7 @@ export const queryLatestTrades = gql`
 
 
 export const queryWalletOrders = gql`
-  query queryWalletOrders($address: String!, $status: String!, $exchangeId: Int!, $sortType: String, $orderBy: String, $start: Int!, $limit: Int!) {
+  query queryWalletOrders($address: ID!, $status: String!, $exchangeId: Int!, $sortType: String, $orderBy: String, $start: Int!, $limit: Int!) {
     wallet(address: $address) {
       orders(start: $start, limit: $limit, status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
         totalCount,
@@ -213,7 +213,7 @@ export const queryMarketStats = (marketId) => gql`
 
 
 export const queryWalletHistoryOrders = gql`
-query walletOrder($address: String!, $start: Int!, $limit: Int!, $status: String, $exchangeId: Int!, $sortType: String!, $orderBy: String!){
+query walletOrder($address: ID!, $start: Int, $limit: Int, $status: String!, $exchangeId: Int, $sortType: String, $orderBy: String){
   wallet(address: $address) {
     orders(limit: $limit, start: $start, status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
       totalCount,
@@ -238,7 +238,7 @@ query walletOrder($address: String!, $start: Int!, $limit: Int!, $status: String
 
 
 export const queryWalletHistoryTrades = gql`
-query walletTrade($address: String!, $start: Int!, $limit: Int!, $exchangeId: Int, $sortType: String!, $orderBy: String!){
+query walletTrade($address: ID!, $start: Int, $limit: Int, $exchangeId: Int, $sortType: String, $orderBy: String!){
   wallet(address: $address) {
     trades(limit: $limit, start: $start, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
       totalCount,
@@ -252,7 +252,6 @@ query walletTrade($address: String!, $start: Int!, $limit: Int!, $exchangeId: In
         txStatus
         createdAt
         marketId
-        contractId
         side
         fromOrder
         toOrder

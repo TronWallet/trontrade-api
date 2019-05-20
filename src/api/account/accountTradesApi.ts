@@ -82,19 +82,11 @@ export default class AccountTradesApi {
     limit = 50,
     sortBy = 'createdAt:ASC',
     symbolId = null,
-  }: QueryParameters): Promise<Trade[]> {
+  }: QueryParameters = {}): Promise<Trade[]> {
 
     const [sortType, orderBy = ''] = sortBy.split(":");
 
-    const {
-      data: {
-        wallet: {
-          trades: {
-            rows
-          }
-        }
-      }
-    } = await tronTradeApiClient.query({
+    const result = await tronTradeApiClient.query({
       query: queryWalletHistoryTrades,
       variables: {
         address: this.walletAddress,
@@ -105,6 +97,21 @@ export default class AccountTradesApi {
         exchangeId: symbolId
       }
     });
+
+    console.log('result:', result)
+    if (!result.data) {
+      return []
+    }
+    
+    const {
+      data: {
+        wallet: {
+          trades: {
+            rows
+          }
+        }
+      }
+    } = result
 
     return rows.map(trade => ({
       tx: trade.txId,
