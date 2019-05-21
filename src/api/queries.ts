@@ -302,7 +302,7 @@ export const queryMarketCap = gql`
 `;
 
 export const querySymbolOrders = gql`
-query symbolOrder($exchangeId: Int!, $start: Int!, $limit: Int!, $status: String, $exchangeId: Int!, $sortType: String!, $orderBy: String!){
+query symbolOrder($exchangeId: ID!, $start: Int, $limit: Int, $status: String!, $sortType: String, $orderBy: String){
   exchange(id: $exchangeId) {
     orders(status: $status, limit: $limit, start: $start, sortType: $sortType, orderBy: $orderBy) {
       totalCount,

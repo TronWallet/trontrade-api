@@ -72,19 +72,11 @@ export default class SymbolOrdersApi {
   }: QueryParameters = {}): Promise<Order[]> {
 
     const [sortType, orderBy] = sortBy.split(":");
-
-    const {
-      data: {
-        wallet: {
-          orders: {
-            rows
-          }
-        }
-      }
-    } = await tronTradeApiClient.query({
+    
+    const result = await tronTradeApiClient.query({
       query: querySymbolOrders,
       variables: {
-        exchangeId: this.symbol,
+        exchangeId: this.symbol.id,
         start,
         limit,
         status: status.join(","),
@@ -92,6 +84,21 @@ export default class SymbolOrdersApi {
         orderBy,
       }
     });
+
+    if (result.errors) {
+      console.log('errors:', result.errors)
+      return []
+    }
+
+    const {
+      data: {
+        exchange: {
+          orders: {
+            rows
+          }
+        }
+      }
+    } = result
 
     return rows.map(row => ({
       transaction: row.txOrder,

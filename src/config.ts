@@ -7,8 +7,8 @@
 /**
  * API Url
  */
-export const API_URL = "http://localhost:3010"
-//"https://trontrade.io";
+export const API_URL = "https://trontrade.io";
+// export const API_URL = "http://localhost:3010";
 
 /**
  * GraphQL API
