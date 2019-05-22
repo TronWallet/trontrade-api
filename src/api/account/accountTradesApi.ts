@@ -98,8 +98,8 @@ export default class AccountTradesApi {
       }
     });
 
-    console.log('result:', result)
     if (!result.data) {
+      console.error(result.errors)
       return []
     }
     

@@ -1,6 +1,8 @@
-/*
+/**
  * @module tests
  */
+jest.mock('../../apollo');
+import * as apollo from '../../apollo';
 import Account from '../accountApi';
 import { Observable } from 'rxjs';
 import { OrderStatus } from '../../../models/order';
@@ -52,8 +54,15 @@ describe('AccountOrdersApi', () => {
 
 
 describe('AccountTradesApi', () => {
+  beforeEach(() => {
+    // @ts-ignore
+    apollo.restoreTTApiClient()
+  })
 
   test('trades.query', async () => {
+    // @ts-ignore
+    apollo.setLocalTTApiClient()
+
     expect.assertions(3);
 
     const result = await trades.query({

@@ -1,3 +1,6 @@
+/**
+ * @module tests
+ */
 jest.mock('../../apollo');
 import * as apollo from "../../apollo";
 import { querySymbol } from "../../queries";
@@ -14,6 +17,9 @@ const anteSymbolId = 1;
 let symbolApi: SymbolApi|null = null;
 
 let anteSymbol: Symbol|null = null
+
+// ..
+jest.setTimeout(10_000)
 
 beforeAll(async () => {
   const {

@@ -1,3 +1,6 @@
+/**
+ * @module tests
+ */
 import TradingClient from "..";
 import { TRON_NODE_URL } from "../../../config";
 import { OrderSide } from "../../../models/order";

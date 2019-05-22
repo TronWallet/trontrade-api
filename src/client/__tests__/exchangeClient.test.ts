@@ -9,6 +9,8 @@ beforeEach(() => {
   client = new ExchangeClient();
 });
 
+jest.setTimeout(10_000)
+
 describe('ExchangeClient', () => {
 
   test('read symbols', async () => {
