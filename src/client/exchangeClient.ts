@@ -7,6 +7,7 @@ import Symbol from "../models/symbol";
 import Asset from "../models/asset";
 import SymbolApi from "../api/symbol/symbolApi";
 import AccountApi from "../api/account/accountApi";
+import {keyBy} from "lodash";
 
 /**
  * # Exchange Client
@@ -74,7 +75,12 @@ export default class ExchangeClient {
     ));
   }
 
-  async symbol(id: number) {
+  /**
+   * Symbol API
+   *
+   * @param id Exchange ID
+   */
+  async symbol(id: number): Promise<SymbolApi> {
 
     const { data: { exchange } } = await tronTradeApiClient.query({
       query: querySymbol,
@@ -99,7 +105,8 @@ export default class ExchangeClient {
     return new SymbolApi(s);
   }
 
-  async account(walletAddress: string) {
-    return new AccountApi(walletAddress);
+  async account(walletAddress: string): Promise<AccountApi> {
+    const symbols = await this.symbols();
+    return new AccountApi(walletAddress, keyBy(symbols, s => s.id))
   }
 }

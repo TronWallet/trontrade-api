@@ -13,9 +13,7 @@ export default interface Trade {
   filled: number;
   time?: number;
   side: OrderSide;
-  // fromOrderWallet?: string;
-  // toOrderWallet?: string;
-  // fromOrderExpand?: Order;
-  // toOrderExpand?: Order;
+  fromWallet: string;
+  toWallet: string;
 }
 

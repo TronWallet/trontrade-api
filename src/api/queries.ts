@@ -59,6 +59,8 @@ export const queryLatestTrades = gql`
         marketId
         txId
       }
+      tokenDecimalsA
+      tokenDecimalsB
     }
   }
 `;
@@ -255,8 +257,6 @@ query walletTrade($address: ID!, $start: Int, $limit: Int, $exchangeId: Int, $so
         side
         fromOrder
         toOrder
-        # fromOrderWallet
-        # toOrderWallet
       }
     }
   }

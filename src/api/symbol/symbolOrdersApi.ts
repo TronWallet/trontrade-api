@@ -72,7 +72,7 @@ export default class SymbolOrdersApi {
   }: QueryParameters = {}): Promise<Order[]> {
 
     const [sortType, orderBy] = sortBy.split(":");
-    
+
     const result = await tronTradeApiClient.query({
       query: querySymbolOrders,
       variables: {
@@ -86,7 +86,7 @@ export default class SymbolOrdersApi {
     });
 
     if (result.errors) {
-      console.log('errors:', result.errors)
+      console.log('errors:', result.errors);
       return []
     }
 
@@ -98,7 +98,7 @@ export default class SymbolOrdersApi {
           }
         }
       }
-    } = result
+    } = result;
 
     return rows.map(row => ({
       transaction: row.txOrder,
@@ -108,9 +108,9 @@ export default class SymbolOrdersApi {
       wallet: row.ownerWallet,
       createdAt: row.createdAt,
       side: row.side,
-      price: row.marketPrice,
-      amount: row.amount,
-      filled: row.filled,
+      price: row.marketPrice / Math.pow(10, this.symbol.quoteAsset.precision),
+      amount: row.amount / Math.pow(10, this.symbol.baseAsset.precision),
+      filled: row.filled / Math.pow(10, this.symbol.quoteAsset.precision),
     }));
   }
 }

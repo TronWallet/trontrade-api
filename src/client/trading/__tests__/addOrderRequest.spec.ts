@@ -80,10 +80,10 @@ test("isMinimumOrderValue", async () => {
         price: 25,
         side: OrderSide.Buy,
         market: markets[anteSymbolId]
-      })
+      });
 
     const yes = addOrderRequest.isMinimumOrderValue()
-    console.log("isMinimumOrderValue:", yes)
+    console.log("isMinimumOrderValue:", yes);
 
     expect(yes).toBe(true)
 });

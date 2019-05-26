@@ -9,9 +9,9 @@ beforeEach(() => {
   client = new ExchangeClient();
 });
 
-jest.setTimeout(10_000)
-
 describe('ExchangeClient', () => {
+
+  this.setTimeout(10_000);
 
   test('read symbols', async () => {
 
@@ -39,11 +39,6 @@ describe('ExchangeClient', () => {
 
     const anteSymbol = await client.symbol(1);
     const orderBook = await anteSymbol.orderbook().current();
-
-    console.log({
-      sell: orderBook.sellPrice(),
-      buy: orderBook.buyPrice(),
-    });
 
     expect(orderBook.sell()[0].price).toBeGreaterThan(orderBook.buy()[0].price);
   });

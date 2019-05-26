@@ -2,11 +2,13 @@
  * @module api.account
  */
 import {Observable} from "rxjs";
-import {filter} from "rxjs/internal/operators/filter";
 import {newTradeStream} from "../streams";
 import {tronTradeApiClient} from "../apollo";
 import {queryWalletHistoryTrades} from "../queries";
 import Trade from "../../models/trade";
+import {filter} from "rxjs/operators";
+import Symbol from "../../models/symbol";
+import {Dictionary} from "lodash";
 
 interface QueryParameters {
   start?: number;
@@ -21,9 +23,12 @@ interface QueryParameters {
 export default class AccountTradesApi {
 
   private walletAddress: string;
+  private symbols: Dictionary<Symbol>;
 
-  constructor(walletAddress: string) {
+
+  constructor(walletAddress: string, symbols: Dictionary<Symbol>) {
     this.walletAddress = walletAddress;
+    this.symbols = symbols;
   }
 
   /**
@@ -41,9 +46,8 @@ export default class AccountTradesApi {
    * ```
    */
   watch(): Observable<Trade> {
-    // TODO: fix me.
     return newTradeStream()
-    //   .pipe(filter(x => x.fromOrderExpand && x.fromOrderExpand.wallet === this.walletAddress));
+      .pipe(filter(x => x.fromWallet === this.walletAddress || x.toWallet === this.walletAddress));
   }
 
   /**
@@ -59,7 +63,7 @@ export default class AccountTradesApi {
    *
    * * createdAt
    * * side
-   * 
+   *
    * * marketPrice
    * * amount/amountQuantity
    * * filled/filledQuantity
@@ -99,10 +103,10 @@ export default class AccountTradesApi {
     });
 
     if (!result.data) {
-      console.error(result.errors)
+      console.error(result.errors);
       return []
     }
-    
+
     const {
       data: {
         wallet: {
@@ -111,17 +115,15 @@ export default class AccountTradesApi {
           }
         }
       }
-    } = result
+    } = result;
 
     return rows.map(trade => ({
       tx: trade.txId,
       symbolId: trade.marketId,
       side: trade.side,
-      price: trade.price,
-      filled: trade.filled,
+      price: trade.price / Math.pow(10, this.symbols[trade.marketId].quoteAsset.precision),
+      filled: trade.filled / Math.pow(10, this.symbols[trade.marketId].baseAsset.precision),
       time: trade.createdAt,
-      // fromOrderWallet: trade.fromOrderWallet || '',
-      // toOrderWallet: trade.toOrderWallet || '',
     }));
   }
 

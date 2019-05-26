@@ -4,7 +4,7 @@
 import Symbol from "../../models/symbol";
 import {TickerApi} from "../tickerApi";
 import {Ticker} from "../../models/ticker";
-import {interval, Observable} from "rxjs";
+import {from, interval, merge, Observable} from "rxjs";
 import {tronTradeApiClient} from "../apollo";
 import {querySymbol} from "../queries";
 import {concatMap} from "rxjs/operators";
@@ -36,7 +36,12 @@ export default class SymbolTickerApi implements TickerApi {
    */
   async current(): Promise<Ticker> {
 
-    const { data: { exchange: { stats } } } = await tronTradeApiClient.query({
+    const { data: {
+      exchange: {
+        stats,
+        tokenDecimalsA,
+      },
+    } } = await tronTradeApiClient.query({
       query: querySymbol,
       variables: {
         exchangeId: this.symbol.id,
@@ -44,10 +49,10 @@ export default class SymbolTickerApi implements TickerApi {
     });
 
     return {
-      high: stats.high,
-      low: stats.low,
-      volume: stats.volume,
-      price: stats.lastPrice,
+      high: stats.high / Math.pow(10, tokenDecimalsA),
+      low: stats.low / Math.pow(10, tokenDecimalsA),
+      volume: stats.volume / Math.pow(10, tokenDecimalsA),
+      price: stats.lastPrice / Math.pow(10, tokenDecimalsA),
     };
   }
 
@@ -61,7 +66,7 @@ export default class SymbolTickerApi implements TickerApi {
    * ```
    */
   watch(): Observable<Ticker> {
-    return interval(10000)
+    return merge(from(this.current()), interval(10000))
       .pipe(concatMap(() => this.current()))
   }
 

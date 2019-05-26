@@ -11,29 +11,36 @@ const walletAddress = 'TXRgUnEKA9qHwCnsmXJxvBSNogkZUGgf9v';
 
 const anteSymbol = 1;
 
-const account = new Account(walletAddress);
+const account = new Account(walletAddress , {});
 
-const orders = account.orders()
+const orders = account.orders();
 
-const trades = account.trades()
+const trades = account.trades();
 
 describe('AccountOrdersApi', () => {
+
   test('orders.query', async () => {
+
     expect.assertions(3);
+
     const result = await orders.query({
       start: 0,
       limit: 10,
-      status: [OrderStatus.Pending, OrderStatus.Failed, OrderStatus.Completed, OrderStatus.Cancelled]
+      status: [
+        OrderStatus.Pending,
+        OrderStatus.Failed,
+        OrderStatus.Completed,
+        OrderStatus.Cancelled,
+      ],
     });
 
     expect(Array.isArray(result)).toBe(true);
-
     expect(result.length).toBeGreaterThan(0);
-
     expect(result[0].wallet).toBe(walletAddress);
   });
 
   test.skip('orders.watch', async (done) => {
+
     expect.assertions(2);
 
     const result$ = orders.watch();
@@ -42,13 +49,11 @@ describe('AccountOrdersApi', () => {
 
     const sub = result$.subscribe((order) => {
 
-      expect(order.wallet).toBe(walletAddress)
-      
-      sub.unsubscribe()
-
-      done()
+      expect(order.wallet).toBe(walletAddress);
+      sub.unsubscribe();
+      done();
     })
-    
+
   });
 });
 

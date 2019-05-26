@@ -7,6 +7,8 @@ import {filter} from "rxjs/internal/operators/filter";
 import {newOrderStream} from "../streams";
 import {tronTradeApiClient} from "../apollo";
 import {queryWalletHistoryOrders} from "../queries";
+import Symbol from "../../models/symbol";
+import {Dictionary} from "lodash";
 
 interface QueryParameters {
   start?: number;
@@ -21,9 +23,11 @@ interface QueryParameters {
 export default class AccountOrdersApi {
 
   private walletAddress: string;
+  private symbols: Dictionary<Symbol>;
 
-  constructor(walletAddress: string) {
+  constructor(walletAddress: string, symbols: Dictionary<Symbol>) {
     this.walletAddress = walletAddress;
+    this.symbols = symbols;
   }
 
   /**
@@ -117,9 +121,9 @@ export default class AccountOrdersApi {
       wallet: this.walletAddress,
       createdAt: row.createdAt,
       side: row.side,
-      price: row.marketPrice,
-      amount: row.amount,
-      filled: row.filled,
+      price: row.marketPrice / Math.pow(10, this.symbols[row.marketId].quoteAsset.precision),
+      amount: row.amount / Math.pow(10, this.symbols[row.marketId].baseAsset.precision),
+      filled: row.filled / Math.pow(10, this.symbols[row.marketId].quoteAsset.precision),
     }));
   }
 
