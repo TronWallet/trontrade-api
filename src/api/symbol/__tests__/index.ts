@@ -67,7 +67,7 @@ describe("symbolOrdersApi", () => {
     // @ts-ignore
     apollo.restoreTTApiClient()
   })
-  
+
   test("symbolApi.orders type", () => {
     const orders = symbolApi!.orders();
     expect(orders).toBeInstanceOf(SymbolOrdersApi);
@@ -96,7 +96,7 @@ describe("symbolOrdersApi", () => {
 });
 
 describe("symbolTickerApi", () => {
-  
+
   test("symbolApi.ticker type", () => {
     const ticker = symbolApi!.ticker()
     expect(ticker).toBeInstanceOf(SymbolTickerApi);
@@ -113,17 +113,3 @@ describe("symbolTickerApi", () => {
   });
 
 });
-
-// TODO: fix
-describe.skip("unexposed ,not referenced symbolTradesApi", () => {
-    
-    test('trades.recent.', async () => {
-        const trades = new SymbolTradesApi(anteSymbol!);
-        expect.assertions(2)
-        const result = await trades.recent(3);
-        expect(Array.isArray(result)).toBe(true)
-        expect(result.length).toBeLessThanOrEqual(3)
-    })
-
-    test.todo('trades.watch.');
-})
