@@ -5,6 +5,7 @@ import Symbol from "../../models/symbol";
 import SymbolTickerApi from "./symbolTickerApi";
 import SymbolOrdersApi from "./symbolOrdersApi";
 import SymbolOrderBookApi from "./symbolOrderBookApi";
+import SymbolTradesApi from "./symbolTradesApi";
 
 /**
  * # Symbol API
@@ -29,14 +30,20 @@ export default class SymbolApi {
   /**
    * Orders API
    */
-  orders() {
+  orders(): SymbolOrdersApi {
     return new SymbolOrdersApi(this.symbol);
   }
 
   /**
    * Orderbook API
    */
-  orderbook() {
+  orderbook(): SymbolOrderBookApi {
     return new SymbolOrderBookApi(this.symbol);
+  }
+  /**
+   * Orderbook API
+   */
+  trades(): SymbolTradesApi {
+    return new SymbolTradesApi(this.symbol);
   }
 }

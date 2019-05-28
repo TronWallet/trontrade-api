@@ -7,12 +7,14 @@ import {filter} from "rxjs/internal/operators/filter";
 import {newOrderStream} from "../streams";
 import {tronTradeApiClient} from "../apollo";
 import {queryWalletHistoryOrders} from "../queries";
+import Symbol from "../../models/symbol";
+import {Dictionary} from "lodash";
 
 interface QueryParameters {
   start?: number;
   limit?: number;
   status?: OrderStatus[];
-  sortBy: string;
+  sortBy?: string;
 }
 
 /**
@@ -21,9 +23,11 @@ interface QueryParameters {
 export default class AccountOrdersApi {
 
   private walletAddress: string;
+  private symbols: Dictionary<Symbol>;
 
-  constructor(walletAddress: string) {
+  constructor(walletAddress: string, symbols: Dictionary<Symbol>) {
     this.walletAddress = walletAddress;
+    this.symbols = symbols;
   }
 
   /**
@@ -35,7 +39,7 @@ export default class AccountOrdersApi {
    * const anteSymbolId = 1;
    * const accountApi = await client.account('TCgnJmYmMUJ9eS6x62Vj7YFfpBM1DTL8V8');
    *
-   * accountApi.orders().watch(order => {
+   * accountApi.orders().watch().subscribe(order => {
    *  console.log("new order", order);
    * });
    * ```
@@ -85,7 +89,7 @@ export default class AccountOrdersApi {
     limit = 50,
     status = [OrderStatus.Pending],
     sortBy = 'createdAt:ASC',
-  }: QueryParameters): Promise<Order[]> {
+  }: QueryParameters = {}): Promise<Order[]> {
 
     const [sortType, orderBy] = sortBy.split(":");
 
@@ -117,9 +121,9 @@ export default class AccountOrdersApi {
       wallet: this.walletAddress,
       createdAt: row.createdAt,
       side: row.side,
-      price: row.marketPrice,
-      amount: row.amount,
-      filled: row.filled,
+      price: row.marketPrice / Math.pow(10, this.symbols[row.marketId].quoteAsset.precision),
+      amount: row.amount / Math.pow(10, this.symbols[row.marketId].baseAsset.precision),
+      filled: row.filled / Math.pow(10, this.symbols[row.marketId].quoteAsset.precision),
     }));
   }
 

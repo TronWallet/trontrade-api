@@ -7,7 +7,8 @@ import Symbol from "../../models/symbol";
 import {newTradeStream} from "../streams";
 import Trade from "../../models/trade";
 import {tronTradeApiClient} from "../apollo";
-import {queryLatestTrades, querySymbol} from "../queries";
+import {queryLatestTrades} from "../queries";
+import {map} from "rxjs/operators";
 
 export default class SymbolTradesApi {
 
@@ -19,11 +20,20 @@ export default class SymbolTradesApi {
 
   watch(): Observable<Trade> {
     return newTradeStream()
-      .pipe(filter(x => x.symbolId === this.symbol.id));
+      .pipe(
+        filter(trade => trade.symbolId === this.symbol.id),
+        map(trade => ({
+          ...trade,
+          price: trade.price / Math.pow(10, this.symbol.quoteAsset.precision),
+          filled: trade.filled / Math.pow(10, this.symbol.baseAsset.precision),
+        }))
+      );
   }
 
-  async recent(limit?: number): Promise<Trade[]> {
-    const { data: { exchange: { history } } } = await tronTradeApiClient.query({
+  async recent(): Promise<Trade[]> {
+    const { data: { exchange: {
+      history,
+    } } } = await tronTradeApiClient.query({
       query: queryLatestTrades,
       variables: {
         exchangeId: this.symbol.id,
@@ -34,8 +44,8 @@ export default class SymbolTradesApi {
       tx: trade.txId,
       symbolId: trade.marketId,
       side: trade.side,
-      price: trade.price,
-      filled: trade.filled,
+      price: trade.price / Math.pow(10, this.symbol.quoteAsset.precision),
+      filled: trade.filled / Math.pow(10, this.symbol.baseAsset.precision),
       time: trade.createdAt,
     }));
   }

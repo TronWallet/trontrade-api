@@ -1,7 +1,7 @@
 /**
  * @module models
  */
-import {OrderSide} from "./order";
+import {OrderSide, Order} from "./order";
 
 /**
  * Trade
@@ -11,7 +11,9 @@ export default interface Trade {
   symbolId: number;
   price: number;
   filled: number;
-  time: number;
+  time?: number;
   side: OrderSide;
+  fromWallet: string;
+  toWallet: string;
 }
 

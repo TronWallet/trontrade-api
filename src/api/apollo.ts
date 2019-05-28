@@ -1,6 +1,7 @@
 /**
  * @module api.graphql
  */
+// TODO: web fetch polyfill or outside dependency
 import fetch from 'node-fetch';
 import {ApolloClient} from 'apollo-client';
 import {InMemoryCache} from 'apollo-cache-inmemory';
@@ -19,21 +20,25 @@ const defaultOptions = {
   },
 };
 
-export const tronTradeApiClient = new ApolloClient({
-  // By default, this client will send queries to the
-  //  `/graphql` endpoint on the same host
-  // Pass the configuration option { uri: YOUR_GRAPHQL_API_URL } to the `HttpLink` to connect
-  // to a different host
+export function createTronTradeApiClient(apiUrl) {
+  return new ApolloClient({
+    // By default, this client will send queries to the
+    //  `/graphql` endpoint on the same host
+    // Pass the configuration option { uri: YOUR_GRAPHQL_API_URL } to the `HttpLink` to connect
+    // to a different host
+  
+    link: new BatchHttpLink({
+      uri: apiUrl + "/graphql",
+      fetch: fetch,
+      batchInterval: 50,
+    }),
+    cache: new InMemoryCache(),
+    // @ts-ignore
+    defaultOptions,
+  });
+}
 
-  link: new BatchHttpLink({
-    uri: API_URL + "/graphql",
-    fetch: fetch,
-    batchInterval: 50,
-  }),
-  cache: new InMemoryCache(),
-  // @ts-ignore
-  defaultOptions,
-});
+export const tronTradeApiClient = createTronTradeApiClient(API_URL)
 
 export const guildChatApiClient = new ApolloClient({
   // By default, this client will send queries to the
