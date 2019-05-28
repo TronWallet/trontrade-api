@@ -95,6 +95,7 @@
 						<section class="tsd-index-section tsd-is-private tsd-is-private-protected">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="api_account.accountordersapi.html#symbols" class="tsd-kind-icon">symbols</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><a href="api_account.accountordersapi.html#walletaddress" class="tsd-kind-icon">wallet<wbr>Address</a></li>
 							</ul>
 						</section>
@@ -114,19 +115,22 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Account<wbr>Orders<wbr>Api<span class="tsd-signature-symbol">(</span>walletAddress<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="api_account.accountordersapi.html" class="tsd-signature-type">AccountOrdersApi</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Account<wbr>Orders<wbr>Api<span class="tsd-signature-symbol">(</span>walletAddress<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, symbols<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Dictionary</span><span class="tsd-signature-symbol">&lt;</span><a href="models.symbol.html" class="tsd-signature-type">Symbol</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="api_account.accountordersapi.html" class="tsd-signature-type">AccountOrdersApi</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/c3c3306/src/api/account/accountOrdersApi.ts#L23">api/account/accountOrdersApi.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/e6f45e4/src/api/account/accountOrdersApi.ts#L26">api/account/accountOrdersApi.ts:26</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>walletAddress: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>symbols: <span class="tsd-signature-type">Dictionary</span><span class="tsd-signature-symbol">&lt;</span><a href="models.symbol.html" class="tsd-signature-type">Symbol</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="api_account.accountordersapi.html" class="tsd-signature-type">AccountOrdersApi</a></h4>
@@ -137,12 +141,22 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-private tsd-is-private-protected">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
+					<a name="symbols" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> symbols</h3>
+					<div class="tsd-signature tsd-kind-icon">symbols<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Dictionary</span><span class="tsd-signature-symbol">&lt;</span><a href="models.symbol.html" class="tsd-signature-type">Symbol</a><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/e6f45e4/src/api/account/accountOrdersApi.ts#L26">api/account/accountOrdersApi.ts:26</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private">
 					<a name="walletaddress" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> wallet<wbr>Address</h3>
 					<div class="tsd-signature tsd-kind-icon">wallet<wbr>Address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/c3c3306/src/api/account/accountOrdersApi.ts#L23">api/account/accountOrdersApi.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/e6f45e4/src/api/account/accountOrdersApi.ts#L25">api/account/accountOrdersApi.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -153,13 +167,13 @@
 					<a name="query" class="tsd-anchor"></a>
 					<h3>query</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">query<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/models.order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">query<span class="tsd-signature-symbol">(</span>__namedParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/models.order.html" class="tsd-signature-type">Order</a><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/c3c3306/src/api/account/accountOrdersApi.ts#L83">api/account/accountOrdersApi.ts:83</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/e6f45e4/src/api/account/accountOrdersApi.ts#L87">api/account/accountOrdersApi.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -197,7 +211,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>__namedParameters: <span class="tsd-signature-type">object</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> __namedParameters: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter">
 											<h5>limit<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h5>
@@ -228,7 +242,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/c3c3306/src/api/account/accountOrdersApi.ts#L43">api/account/accountOrdersApi.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/TronTrade/trontrade-api/blob/e6f45e4/src/api/account/accountOrdersApi.ts#L47">api/account/accountOrdersApi.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -239,7 +253,7 @@
 								<pre><code class="language-typescript"><span class="hljs-keyword">const</span> anteSymbolId = <span class="hljs-number">1</span>;
 <span class="hljs-keyword">const</span> accountApi = <span class="hljs-keyword">await</span> client.account(<span class="hljs-string">'TCgnJmYmMUJ9eS6x62Vj7YFfpBM1DTL8V8'</span>);
 
-accountApi.orders().watch(<span class="hljs-function"><span class="hljs-params">order</span> =&gt;</span> {
+accountApi.orders().watch().subscribe(<span class="hljs-function"><span class="hljs-params">order</span> =&gt;</span> {
  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"new order"</span>, order);
 });</code></pre>
 							</div>
@@ -313,6 +327,9 @@ accountApi.orders().watch(<span class="hljs-function"><span class="hljs-params">
 								<a href="api_account.accountordersapi.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
+								<a href="api_account.accountordersapi.html#symbols" class="tsd-kind-icon">symbols</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="api_account.accountordersapi.html#walletaddress" class="tsd-kind-icon">wallet<wbr>Address</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
@@ -325,8 +342,14 @@ accountApi.orders().watch(<span class="hljs-function"><span class="hljs-params">
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-class tsd-parent-kind-external-module">
+						<a href="api_account.accounttradesapi.html" class="tsd-kind-icon">Account<wbr>Trades<wbr>Api</a>
+					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
 						<a href="../interfaces/api_account.queryparameters.html" class="tsd-kind-icon">Query<wbr>Parameters</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-not-exported">
+						<a href="../interfaces/api_account.queryparameters-1.html" class="tsd-kind-icon">Query<wbr>Parameters</a>
 					</li>
 				</ul>
 			</nav>
