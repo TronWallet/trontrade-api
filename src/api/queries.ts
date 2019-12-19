@@ -8,7 +8,7 @@ import {OrderStatus} from "../models/order";
  * Reads the TRC20 balance for a given address and contract
  */
 export const readTRC20Balance = gql`
-  query trc20Balance($address: String!, $contract: String!) {
+  query trc20Balance($address: ID!, $contract: String!) {
     account(address: $address) {
       balance {
         token: trc20(address: $contract) {
@@ -24,7 +24,7 @@ export const readTRC20Balance = gql`
  * Reads the TRC10 balance for a given address and contract
  */
 export const readTRC10Balance = gql`
-  query trc10Balance($address: String!, $id: String!) {
+  query trc10Balance($address: ID!, $id: String!) {
     account(address: $address) {
       balance {
         token: trc10(id: $id) {
@@ -39,7 +39,7 @@ export const readTRC10Balance = gql`
  * Reads the TRX balance
  */
 export const readTrxBalance = gql`
-  query trxBalance($address: String!) {
+  query trxBalance($address: ID!) {
     account(address: $address) {
       balance {
         trx
@@ -59,15 +59,17 @@ export const queryLatestTrades = gql`
         marketId
         txId
       }
+      tokenDecimalsA
+      tokenDecimalsB
     }
   }
 `;
 
 
 export const queryWalletOrders = gql`
-  query queryWalletOrders($address: String!, $status: String!, $exchangeId: Int!, $sortType: String, $orderBy: String) {
+  query queryWalletOrders($address: ID!, $status: String!, $exchangeId: Int!, $sortType: String, $orderBy: String, $start: Int!, $limit: Int!) {
     wallet(address: $address) {
-      orders(status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
+      orders(start: $start, limit: $limit, status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
         totalCount,
         rows {
           id
@@ -161,9 +163,13 @@ export const querySymbolTicker = gql`
 `;
 
 
-export const queryOrderBook = (marketId) => gql`
-  query {
-    exchange(id: ${marketId}) {
+export const queryOrderBook = gql`
+  query orderBook($exchangeId: ID!){
+    exchange(id: $exchangeId) {
+      tokenIdA
+      tokenIdB
+      tokenDecimalsA
+      tokenDecimalsB
       orderBook(limit: 100) {
         totalBuy
         totalSell
@@ -208,10 +214,10 @@ export const queryMarketStats = (marketId) => gql`
 `;
 
 
-export const queryWalletHistoryOrders = (address, limit = 100, start = 0, status: OrderStatus[], exchangeId: null | number = null, sortType, orderBy) => gql`
-  query {
-  wallet(address: "${address}") {
-    orders(limit: ${limit}, start: ${start}, status: "${status.join(",")}", exchangeId: ${exchangeId}, sortType: "${sortType}", orderBy: "${orderBy}") {
+export const queryWalletHistoryOrders = gql`
+query walletOrder($address: ID!, $start: Int, $limit: Int, $status: String!, $exchangeId: Int, $sortType: String, $orderBy: String){
+  wallet(address: $address) {
+    orders(limit: $limit, start: $start, status: $status, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
       totalCount,
       rows {
         id
@@ -229,7 +235,32 @@ export const queryWalletHistoryOrders = (address, limit = 100, start = 0, status
       }
     }
   }
+}
+`;
+
+
+export const queryWalletHistoryTrades = gql`
+query walletTrade($address: ID!, $start: Int, $limit: Int, $exchangeId: Int, $sortType: String, $orderBy: String!){
+  wallet(address: $address) {
+    trades(limit: $limit, start: $start, exchangeId: $exchangeId, sortType: $sortType, orderBy: $orderBy) {
+      totalCount,
+      rows {
+        id
+        txId
+        quantity
+        price
+        filled
+        status
+        txStatus
+        createdAt
+        marketId
+        side
+        fromOrder
+        toOrder
+      }
+    }
   }
+}
 `;
 
 export const queryWalletTotalVolume = (address, exchangeId, days) => gql`
@@ -268,4 +299,28 @@ export const queryMarketCap = gql`
       }
     }
   }
+`;
+
+export const querySymbolOrders = gql`
+query symbolOrder($exchangeId: ID!, $start: Int, $limit: Int, $status: String!, $sortType: String, $orderBy: String){
+  exchange(id: $exchangeId) {
+    orders(status: $status, limit: $limit, start: $start, sortType: $sortType, orderBy: $orderBy) {
+      totalCount,
+      rows {
+        id
+        marketPrice
+        amount
+        filled
+        status
+        txStatus
+        createdAt
+        txOrder
+        marketId
+        contractId
+        side
+        completedAt
+      }
+    }
+  }
+}
 `;

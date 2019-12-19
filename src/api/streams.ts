@@ -41,6 +41,8 @@ export function newTradeStream() {
         filled: trade.filled,
         time: trade.time,
         side: trade.side,
+        fromWallet: trade.fromWallet,
+        toWallet: trade.toWallet,
       });
     });
 

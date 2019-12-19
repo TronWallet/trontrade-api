@@ -7,6 +7,7 @@ import Symbol from "../models/symbol";
 import Asset from "../models/asset";
 import SymbolApi from "../api/symbol/symbolApi";
 import AccountApi from "../api/account/accountApi";
+import {keyBy} from "lodash";
 
 /**
  * # Exchange Client
@@ -54,26 +55,32 @@ import AccountApi from "../api/account/accountApi";
  */
 export default class ExchangeClient {
 
-  async symbols() {
+  async symbols(): Promise<Symbol[]> {
 
     const { data: { exchanges } } = await tronTradeApiClient.query({
       query: querySymbols
     });
 
     return exchanges.map(exchange => new Symbol(
+      exchange.id,
       `${exchange.sellAssetName}${exchange.buyAssetName}`,
       new Asset({
         name: exchange.sellAssetName,
-        precision: exchange.tokenDecimalsA,
+        precision: parseInt(exchange.tokenDecimalsA),
       }),
       new Asset({
         name: exchange.buyAssetName,
-        precision: exchange.tokenDecimalsB,
+        precision: parseInt(exchange.tokenDecimalsB),
       }),
     ));
   }
 
-  async symbol(id: number) {
+  /**
+   * Symbol API
+   *
+   * @param id Exchange ID
+   */
+  async symbol(id: number): Promise<SymbolApi> {
 
     const { data: { exchange } } = await tronTradeApiClient.query({
       query: querySymbol,
@@ -83,6 +90,7 @@ export default class ExchangeClient {
     });
 
     const s = new Symbol(
+      exchange.id,
       `${exchange.sellAssetName}${exchange.buyAssetName}`,
       new Asset({
         name: exchange.sellAssetName,
@@ -97,7 +105,8 @@ export default class ExchangeClient {
     return new SymbolApi(s);
   }
 
-  async account(walletAddress: string) {
-    return new AccountApi(walletAddress);
+  async account(walletAddress: string): Promise<AccountApi> {
+    const symbols = await this.symbols();
+    return new AccountApi(walletAddress, keyBy(symbols, s => s.id))
   }
 }
